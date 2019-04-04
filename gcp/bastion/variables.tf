@@ -27,17 +27,17 @@ variable "list_of_tags" {
 
 variable "image" {
   description = "OS image"
-  default = "debian-cloud/debian-9"
+  default     = "debian-cloud/debian-9"
 }
 
 variable "disk_type" {
   description = "Disk type - [pd-standard pd-ssd]"
-  default = "pd-standard"
+  default     = "pd-standard"
 }
 
 variable "disk_size" {
   description = "Disk size"
-  default = "10"
+  default     = "10"
 }
 
 variable "network" {
@@ -48,4 +48,8 @@ variable "network" {
 variable "subnetwork" {
   description = "The VPC subnetwork where the elk-stack instance will be created"
   default     = "default"
+}
+
+variable "hostname" {
+  description = "instance FQDN hostname"
 }

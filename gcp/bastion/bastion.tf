@@ -10,6 +10,7 @@ data "template_file" "bastion_init" {
 
 resource "google_compute_instance" "bastion" {
   name                      = "${var.name}"
+  hostname                  = "${var.hostname}"
   machine_type              = "${var.machine_type}"
   zone                      = "${var.zone}"
   tags                      = "${var.list_of_tags}"
@@ -27,7 +28,7 @@ resource "google_compute_instance" "bastion" {
   network_interface {
     subnetwork_project = "${var.network_project}"
     subnetwork         = "${var.subnetwork}"
-    access_config {}
+    access_config      = {}
   }
 
   metadata_startup_script = "${data.template_file.bastion_init.rendered}"
