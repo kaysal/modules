@@ -53,3 +53,7 @@ variable "subnetwork" {
 variable "hostname" {
   description = "instance FQDN hostname"
 }
+
+variable "service_account_email" {
+  description = "VM service account email"
+}
