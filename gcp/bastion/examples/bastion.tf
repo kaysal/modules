@@ -1,12 +1,13 @@
 module "bastion" {
-  #source              = "github.com/kaysal/cloud-networking/modules/gcp/elk"
-  source          = "/home/salawu/tf_modules/gcp/bastion"
-  name            = "${var.main}bastion"
-  project         = "${data.terraform_remote_state.host.host_project_id}"
-  network_project = "${data.terraform_remote_state.host.host_project_id}"
-  network         = "${google_compute_network.vpc.self_link}"
-  subnetwork      = "${google_compute_subnetwork.apple_eu_w1_10_100_10.self_link}"
-  zone            = "europe-west1-c"
+  source = "github.com/kaysal/modules.git//gcp/bastion"
+  name                  = "${var.main}bastion"
+  hostname              = "bastion.mango.cloudtuple.com"
+  project               = "${data.terraform_remote_state.mango.mango_project_id}"
+  network_project       = "${data.terraform_remote_state.mango.mango_project_id}"
+  network               = "${google_compute_network.vpc.self_link}"
+  subnetwork            = "${google_compute_subnetwork.eu_w2_10_200_30.self_link}"
+  zone                  = "europe-west1-c"
+  service_account_email = "${data.terraform_remote_state.mango.vm_mango_project_service_account_email}"
 
   #machine_type             = "f1-micro"
   #list_of_tags             = ["bastion", "gce"]
