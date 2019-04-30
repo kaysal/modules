@@ -41,7 +41,7 @@ Creating a GKE cluster.
 
 ```
 module "gke" {
-  source     = "../../../../../../../tf_modules/gcp/gke"
+  source     = "github.com/kaysal/modules//gcp/gke"
   project_id = "${data.terraform_remote_state.gke.gke_service_project_id}"
 
   # cluster
