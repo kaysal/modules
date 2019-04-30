@@ -90,5 +90,3 @@ module "gke" {
 ```
 
 ## Sample Output
-
-TODO: add sample output here
