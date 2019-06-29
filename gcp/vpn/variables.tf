@@ -33,52 +33,7 @@ variable "gateway_name" {
 
 variable "gateway_ip" {
   description = "The IP of VPN gateway"
-}
-
-variable "reserved_gateway_ip" {
-  description = "A flag to specify if gateway IP should be created"
-  default     = false
-}
-
-variable "tunnel_count" {
-  description = "The number of tunnels from each VPN gw (default is 1)"
-  default     = 1
-}
-
-variable "tunnel_name_prefix" {
-  description = "The optional custom name of VPN tunnel being created"
-  default     = ""
-}
-
-variable "local_traffic_selector" {
-  description = <<EOD
-Local traffic selector to use when establishing the VPN tunnel with peer VPN gateway.
-Value should be list of CIDR formatted strings and ranges should be disjoint.
-EOD
-
-  type    = "list"
-  default = ["0.0.0.0/0"]
-}
-
-variable "remote_traffic_selector" {
-  description = <<EOD
-Remote traffic selector to use when establishing the VPN tunnel with peer VPN gateway.
-Value should be list of CIDR formatted strings and ranges should be disjoint.
-EOD
-
-  type    = "list"
-  default = ["0.0.0.0/0"]
-}
-
-variable "peer_ips" {
-  type        = "list"
-  description = "IP address of remote-peer/gateway"
-}
-
-variable "remote_subnet" {
-  description = "remote subnet ip range in CIDR format - x.x.x.x/x"
-  type        = "list"
-  default     = []
+  default     = null
 }
 
 variable "shared_secret" {
@@ -86,32 +41,9 @@ variable "shared_secret" {
   default     = ""
 }
 
-variable "route_priority" {
-  description = "Priority for static route being created"
-  default     = 1000
-}
-
 variable "cr_name" {
   description = "The name of cloud router for BGP routing"
   default     = ""
-}
-
-variable "peer_asn" {
-  type        = "list"
-  description = "Please enter the ASN of the BGP peer that cloud router will use"
-  default     = ["65101"]
-}
-
-variable "bgp_cr_session_range" {
-  type        = "list"
-  description = "Please enter the cloud-router interface IP/Session IP"
-  default     = ["169.254.1.1/30", "169.254.1.5/30"]
-}
-
-variable "bgp_remote_session_range" {
-  type        = "list"
-  description = "Please enter the remote environments BGP Session IP"
-  default     = ["169.254.1.2", "169.254.1.6"]
 }
 
 variable "advertised_route_priority" {
@@ -122,4 +54,9 @@ variable "advertised_route_priority" {
 variable "ike_version" {
   description = "Please enter the IKE version used by this tunnel (default is IKEv2)"
   default     = 2
+}
+
+variable "tunnels" {
+  type        = "list"
+  description = "The list of tunnels being created"
 }
