@@ -2,11 +2,13 @@
 # vm host
 
 resource "google_compute_instance" "vm" {
-  name                      = var.name
-  hostname                  = var.hostname
-  machine_type              = var.machine_type
-  zone                      = var.zone
-  tags                      = var.tags
+  count        = var.enable_nat_ip == true ? 1 : 0
+  name         = var.name
+  hostname     = var.hostname
+  machine_type = var.machine_type
+  zone         = var.zone
+  tags         = var.tags
+
   allow_stopping_for_update = true
   can_ip_forward            = true
 
@@ -21,7 +23,7 @@ resource "google_compute_instance" "vm" {
   network_interface {
     subnetwork_project = var.network_project
     subnetwork         = var.subnetwork
-    network_ip = var.network_ip
+    network_ip         = var.network_ip
 
     access_config {
       nat_ip       = var.nat_ip

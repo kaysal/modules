@@ -52,7 +52,7 @@ variable "subnetwork" {
 
 variable "network_ip" {
   description = "The private IP address to assign to the instance"
-  default = null
+  default     = null
 }
 
 variable "hostname" {
@@ -85,7 +85,7 @@ variable "service_account_email" {
 }
 
 variable "scopes" {
-  description =  <<EOF
+  description = <<EOF
   "A list of service scopes.
   Both OAuth2 URLs and gcloud short names are supported.
   To allow full access to all Cloud APIs, use the cloud-platform scope"
@@ -97,4 +97,9 @@ EOF
 variable "metadata_startup_script" {
   description = "VM instance metadata start-up script"
   default = null
+}
+
+variable "enable_nat_ip" {
+  description = "bool to chose if instance should have nat ip"
+  default = true
 }
