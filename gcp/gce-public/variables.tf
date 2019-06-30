@@ -98,8 +98,3 @@ variable "metadata_startup_script" {
   description = "VM instance metadata start-up script"
   default = null
 }
-
-variable "enable_nat_ip" {
-  description = "bool to chose if instance should have nat ip"
-  default = true
-}

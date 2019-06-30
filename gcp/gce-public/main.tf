@@ -1,8 +1,6 @@
-
 # vm host
 
 resource "google_compute_instance" "vm" {
-  count        = var.enable_nat_ip == true ? 1 : 0
   name         = var.name
   hostname     = var.hostname
   machine_type = var.machine_type

@@ -6,7 +6,7 @@ locals {
 }
 
 module "web" {
-  source          = "github.com/kaysal/modules.git//gcp/vm"
+  source          = "github.com/kaysal/modules.git//gcp/gce-public"
   name            = "web"
   hostname        = ""
   project         = var.project_id
