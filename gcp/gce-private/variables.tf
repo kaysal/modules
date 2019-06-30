@@ -8,6 +8,7 @@ variable "project" {
 
 variable "network_project" {
   description = "Project where the elk stack subnetwork will be created"
+  default = null
 }
 
 variable "machine_type" {
@@ -57,6 +58,7 @@ variable "network_ip" {
 
 variable "hostname" {
   description = "instance FQDN hostname"
+  default     = null
 }
 
 variable "ssh_keys" {
