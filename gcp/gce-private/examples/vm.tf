@@ -1,10 +1,4 @@
 
-locals {
-  web_init = templatefile("scripts/bastion.sh.tpl", {
-    VAR = "value"
-  })
-}
-
 module "web" {
   source          = "github.com/kaysal/modules.git//gcp/gce-public"
   name            = "web"
@@ -17,6 +11,6 @@ module "web" {
   zone            = "europe-west1-b"
   tags            = ["gce"]
 
-  metadata_startup_script = local.web_init
+  metadata_startup_script = "${file("scripts/startup.sh")}"
   service_account_email   = var.service_account_email
 }

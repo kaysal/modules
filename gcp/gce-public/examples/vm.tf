@@ -17,6 +17,6 @@ module "web" {
   zone            = "europe-west1-b"
   tags            = ["gce"]
 
-  metadata_startup_script = local.web_init
+  metadata_startup_script = "${file("scripts/startup-web.sh")}"
   service_account_email   = var.service_account_email
 }
