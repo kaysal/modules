@@ -54,4 +54,4 @@ Then perform the following commands on the root folder:
 
 
 ## Outputs
-See /outputs.tf file for the outputs generated using `terraform output` command
+See `/outputs.tf` file for the outputs generated using `terraform output` command
