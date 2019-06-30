@@ -19,10 +19,10 @@ variable "zone" {
   description = "GCE zone"
 }
 
-variable "list_of_tags" {
-  type        = "list"
+variable "tags" {
+  type        = list(string)
   description = "Network tag list"
-  default     = ["bastion", "gce"]
+  default     = []
 }
 
 variable "image" {
@@ -54,6 +54,37 @@ variable "hostname" {
   description = "instance FQDN hostname"
 }
 
+variable "ssh_keys" {
+  description = "SSH public keys for VM"
+  default     = null
+}
+
+variable "network_tier" {
+  description = "The networking tier used for configuring this instance"
+  default     = "STANDARD"
+}
+
+variable "public_ptr_domain_name" {
+  description = "The DNS domain name for the public PTR record"
+  default     = null
+}
+
+variable "nat_ip" {
+  description = "The IP address that will be 1:1 mapped to the instance's network ip"
+  default     = null
+}
+
 variable "service_account_email" {
   description = "VM service account email"
+  default     = null
+}
+
+variable "scopes" {
+  description =  <<EOF
+  "A list of service scopes.
+  Both OAuth2 URLs and gcloud short names are supported.
+  To allow full access to all Cloud APIs, use the cloud-platform scope"
+EOF
+
+  default = ["cloud-platform"]
 }

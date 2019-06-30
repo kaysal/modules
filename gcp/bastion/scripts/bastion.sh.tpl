@@ -10,4 +10,7 @@ apt-get -y install \
   dnsutils \
   siege \
   nmap \
-  fping
+  fping \
+  jq \
+  python3 python3-pip \
+  pip3 install requests
