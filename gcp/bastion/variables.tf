@@ -50,6 +50,11 @@ variable "subnetwork" {
   default     = "default"
 }
 
+variable "network_ip" {
+  description = "The private IP address to assign to the instance"
+  default     = null
+}
+
 variable "hostname" {
   description = "instance FQDN hostname"
 }
@@ -80,7 +85,7 @@ variable "service_account_email" {
 }
 
 variable "scopes" {
-  description =  <<EOF
+  description = <<EOF
   "A list of service scopes.
   Both OAuth2 URLs and gcloud short names are supported.
   To allow full access to all Cloud APIs, use the cloud-platform scope"

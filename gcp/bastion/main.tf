@@ -27,6 +27,7 @@ resource "google_compute_instance" "bastion" {
   network_interface {
     subnetwork_project = var.network_project
     subnetwork         = var.subnetwork
+    network_ip         = var.network_ip
 
     access_config {
       nat_ip       = var.nat_ip
