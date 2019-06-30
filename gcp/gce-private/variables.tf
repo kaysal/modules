@@ -8,7 +8,7 @@ variable "project" {
 
 variable "network_project" {
   description = "Project where the elk stack subnetwork will be created"
-  default = null
+  default     = null
 }
 
 variable "machine_type" {
