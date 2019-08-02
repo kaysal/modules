@@ -11,7 +11,7 @@ resource "google_container_cluster" "cluster" {
 
   logging_service    = var.logging_service
   monitoring_service = var.monitoring_service
-  min_master_version = local.kubernetes_version
+  min_master_version = var.min_master_version != null ? var.min_master_version : local.kubernetes_version
 
   remove_default_node_pool = true
   initial_node_count       = 1
@@ -59,11 +59,11 @@ resource "google_container_cluster" "cluster" {
     network_policy_config {
       disabled = ! var.enable_network_policy
     }
-    /*
+
     istio_config {
       disabled = ! var.enable_istio_config
       #auth = "AUTH_MUTUAL_TLS"
-    }*/
+    }
   }
 
   network_policy {

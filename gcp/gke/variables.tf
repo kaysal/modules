@@ -57,6 +57,12 @@ variable "default_max_pods_per_node" {
   default     = 96
 }
 
+variable "min_master_version" {
+  description = "The minimum Kubernetes version of the masters. If set, then kubernetes_version does not apply"
+  type        = string
+  default     = null
+}
+
 variable "kubernetes_version" {
   description = "The Kubernetes version of the masters. If set to 'latest' it will pull latest available version in the selected region."
   type        = string
@@ -166,9 +172,9 @@ variable "cluster_labels" {
   }
 }
 
-variable "istio_config_disabled" {
+variable "enable_istio_config" {
   description = "status of the Istio addon"
-  default = true
+  default = false
 }
 
 # OPTIONAL PARAMETERS - RECOMMENDED DEFAULTS
