@@ -51,10 +51,10 @@ resource "google_container_cluster" "cluster" {
     horizontal_pod_autoscaling {
       disabled = ! var.horizontal_pod_autoscaling
     }
-
+/*
     kubernetes_dashboard {
       disabled = ! var.enable_kubernetes_dashboard
-    }
+    }*/
 
     network_policy_config {
       disabled = ! var.enable_network_policy

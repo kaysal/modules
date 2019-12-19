@@ -164,7 +164,7 @@ variable "enable_binary_authorization" {
 }
 
 variable "cluster_labels" {
-  type = "map"
+  type = any
   description = "Labels to be attached to the cluster."
 
   default = {
