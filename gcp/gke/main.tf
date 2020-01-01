@@ -6,6 +6,7 @@ resource "google_container_cluster" "cluster" {
   description     = var.description
   resource_labels = var.cluster_labels
   location        = var.location
+  node_locations  = var.node_locations
   network         = var.network
   subnetwork      = var.subnetwork
 
@@ -51,7 +52,7 @@ resource "google_container_cluster" "cluster" {
     horizontal_pod_autoscaling {
       disabled = ! var.horizontal_pod_autoscaling
     }
-/*
+    /*
     kubernetes_dashboard {
       disabled = ! var.enable_kubernetes_dashboard
     }*/
